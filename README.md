@@ -1,13 +1,14 @@
 # URBANISM — Obor
 
-Livrabile preliminare pentru studiul școlar de urbanism București–Obor.
+## Versiunea curentă: V02
 
-În directorul `livrabile`:
+Folosiți fișierele din **livrabile/V02**. Această versiune corectează inventarul vegetal insuficient din prima versiune.
 
-- `Obor.pdf`: două planșe axonometrice A3.
-- `Obor_axonometrii_editabile.zip`: planșele PDF/PNG și fișierele editabile QGIS, GeoPackage și Blender.
-- `NOTA_METODOLOGICA.md`: sursele și limitele modelului.
+- `Obor_V02.pdf`: două planșe axonometrice A3, cu vegetație recuperată din blocurile DWG și completări OpenStreetMap.
+- `01_Axonometrie_generala.png` și `02_Axonometrie_interventie.png`: previzualizări.
+- `Obor_V02_editabil.zip`: PDF/PNG, QGIS, GeoPackage și Blender.
+- `NOTA_METODOLOGICA.md`: sursele, alinierea și limitele modelului.
 
-Pentru descărcare, deschideți fișierul în GitHub și folosiți **Download raw file**. Alternativ, **Code → Download ZIP** descarcă întregul repository.
+Date OSM: © OpenStreetMap contributors, ODbL, https://www.openstreetmap.org/copyright . Înălțimile clădirilor și coroanele arborilor rămân estimate/simbolice. Inventarul vegetației nu este exhaustiv. Perimetrele parcurilor includ și alei.
 
-Înălțimile clădirilor sunt estimate, arborii sunt schematici, iar inventarul spațiilor verzi este incomplet. Consultați nota metodologică înainte de utilizare.
+Pentru descărcare, deschideți fișierul în GitHub și apăsați **Download raw file**. Fișierele inițiale din `livrabile` sunt păstrate pentru istoric; V02 le înlocuiește pentru utilizarea curentă.
