@@ -1,0 +1,42 @@
+OBOR — PLAN 2D V04 / COMPLETARI V1–V3
+
+CE S-A COMPLETAT
+V1: ansamblul Parcul Garii Obor / Parculet Caminului si gradinile dintre blocuri, intre Ferdinand I si Caminului. Limita ansamblului urmareste bordurile CAD; constructiile au fost decupate. Conform conventiei agreate, aleile interne se includ in suprafata cu functie verde. Ansamblul continuu este un singur contur de calcul, nu un inventar separat al fiecarei gradini sau parc nominal.
+V2: vegetatia vizibila din cvartalul Eufrosin Poteca / Amiral Ioan Murgescu / Baicului, cu separarea de accesul interior si de cladirile existente. Contururile sunt interpretate manual din captura si ajustate pe bordurile CAD; sunt aproximative, nu o digitizare pe ortofotoplan georeferentiat.
+V3: Parcul Hobita si fasiile plantate adiacente din conturul indicat. Alei si loc de joaca incluse in functiunea de parc.
+Capturile au fost folosite in perechile trimise de beneficiar: plansa + Google Maps. Nu s-au extras suprafete din culoarea coroanelor arborilor si nu s-a adaugat un layer de arbori.
+Completari_V1_V3.json pastreaza corespondenta, geometria si metoda pentru fiecare pereche.
+
+PLANSE
+Obor_Planse2D_V04_A3.pdf: 4 pagini A3 — plansa generala si detaliile V1, V2, V3.
+Obor_Plan2D_V04_A3.pdf / .png / .svg: plansa generala separata, PDF/SVG vectoriale si PNG la 300 dpi.
+Obor_Detalii_completari_V04_A3.pdf: cele trei detalii separat.
+Centralizator_suprafete_V04.pdf: lista tuturor contururilor verzi, cu cod si suprafata.
+
+EDITABIL CAD / ARCHICAD
+Obor_Plan2D_V04_metri.dxf: plan 2D, fara arbori, cu culori pe layere si hasuri SOLID.
+VERDE_PLIN = hasuri verzi.
+VERDE_CONTUR_CALCUL = contururile individuale folosite la calcul, cu golurile lor.
+VERDE_SUPRAFETE = etichete separate, cod SV-001 etc. si aria in m2 a fiecarui contur; poti opri acest layer pentru un plan curat fara etichete. Layerul este activ la export.
+Etichetele sunt valori calculate la export, nu campuri dinamice Archicad. Dupa modificarea contururilor trebuie recalculate si actualizate. Nu redimensiona textul prin scalarea intregului model.
+Hasurile contin si codul si aria in XDATA, aplicatia OBOR_VERDE. Nu toate programele CAD afiseaza aceste metadate.
+Unitati: 1 unitate DXF = 1 metru. Origine locala identica cu exportul IFC V02: X_local = X_CAD - 626950; Y_local = Y_CAD - 324600. Pentru suprapunere nu adauga scalari, rotatii sau translatii suplimentare.
+Contururile si suprafetele sunt grupate dupa continuitatea geometrica, nu dupa numere cadastrale sau denumiri oficiale de parcuri. Un ansamblu continuu poate contine mai multe gradini/scuaruri; fasiile separate au coduri distincte. Sunt 121 de contururi independente in V04. Nu reprezinta numarul oficial de parcuri.
+
+CENTRALIZATOR SI DATE GIS
+Suprafete_fiecare_spatiu_verde.csv: cod, denumire, suprafata, perechea de capturi si sursa. CSV cu separator ';' si UTF-8 pentru Excel.
+Spatii_verzi_V04.gpkg si Spatii_verzi_V04_Stereo70.geojson: poligoane individuale in Stereo70 EPSG:3844, cu campuri pentru cod, aria calculata si sursa. Geopackage-ul contine layerul spatii_verzi.
+Bilant_suprafete.csv / .json: bilantul general actualizat.
+Spatii_verzi_individuale.json: geometriile originale in coordonate CAD, codurile si pozitiile etichetelor.
+Codurile SV-... sunt cele ale acestei versiuni V04.
+
+CONVENTII SI PRECIZIE
+Se insumeaza suprafetele vegetate cartografiate si perimetrele de parcuri/gradini, inclusiv aleile interne. Constructiile, apa identificata si suprapunerile sunt excluse. Perimetrele parcurilor nu sunt echivalente cu suprafata exclusiv inierbata. Categoria 'Alte suprafete' nu este sinonima cu suprafata impermeabila.
+Calculul se face strict in limita zonei de studiu. Suprafata construita este amprenta la sol. Arborele si coroana lui nu intra separat in bilant.
+Completarile din capturi sunt interpretari orientative. Franturile numerice sub 1 m2 ale noilor contururi nu au fost pastrate. Acest bilant nu este unul oficial, cadastral sau exhaustiv. Reprezentarea parcelelor provine din Prop_line, fara verificare cadastrala.
+Baza V03 este pastrata, cu adaugarea numai a celor trei zone indicate. Geometria cladirilor nu a fost modificata. Ariile verzi individuale nu se suprapun; suma lor coincide cu suprafata verde totala. Valorile tiparite sunt rotunjite.
+Surse: DWG/PDF furnizate + copyright OpenStreetMap contributors, ODbL (extragere 17.10.2026, https://www.openstreetmap.org/copyright) + capturile furnizate de beneficiar pentru completarile V1–V3.
+Alinierea aproximativa OSM–CAD foloseste translatia determinata in V02; reziduu median aproximativ 1,6 m pe 876 de contururi. Nu este o ridicare topografica certificata.
+
+IMPRIMARE
+PDF A3 peisaj; imprimare la 100% / Actual size pentru bara de scara a plansei generale. Plansele generale sunt fara etichete individuale, pentru lizibilitate; detaliile si centralizatorul afiseaza suprafetele. Pentru etichetele tuturor contururilor foloseste layerul VERDE_SUPRAFETE din DXF.

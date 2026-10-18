@@ -1,6 +1,12 @@
 # URBANISM — Obor
 
-## Versiunea curentă: V02
+## Planuri 2D actualizate: V04
+
+Folositi **livrabile/Plan2D_V04** pentru analiza 2D actuala. Au fost completate zonele indicate de beneficiar: V1 Gara Obor / Caminului, V2 Eufrosin Poteca / Murgescu / Baicului, V3 Parcul Hobita. PDF-ul contine plansa generala si trei detalii. Pachetul ZIP include PDF/PNG/SVG, DXF in metri, centralizator CSV/PDF si date GIS.
+
+DXF-ul are layer separat **VERDE_SUPRAFETE**, cu 121 de coduri si arii ale contururilor verzi independente; hasurile sunt pe VERDE_PLIN. Etichetele sunt valori la export, nu campuri dinamice. Aria verde cartografiata V04: 141.572,83 m2 (14,16 ha), 4,05% din studiu. Suprafetele sunt orientative, potrivit conventiei agreate pentru parcuri; completarile din capturi nu sunt o ridicare topografica. Consultati CITESTE_MA.txt.
+
+## Axonometrii: V02
 
 Folosiți fișierele din **livrabile/V02**. Această versiune corectează inventarul vegetal insuficient din prima versiune.
 
