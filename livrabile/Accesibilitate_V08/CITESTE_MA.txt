@@ -1,0 +1,36 @@
+OBOR / ACCESIBILITATEA SPAȚIILOR VERZI — V08
+
+PLANȘA
+Obor_Accesibilitate_V08_A3.pdf: A3 peisaj, contururi și texte vectoriale, degradeu raster.
+PNG: 300 dpi. SVG: editabil în Illustrator/Inkscape; font DejaVu Sans.
+
+DATE ȘI METODĂ
+Baza și cele patru categorii sunt cele aprobate în V06. SV-027 exclus; SV-029 rămâne parc. Fâșiile și spațiile aferente locuințelor nu generează deservire.
+Revizie grafică V08; calculul de accesibilitate rămâne V07.
+16 surse în studiu (4 parcuri la 500m, 12 scuaruri la 300m). 19 surse exterioare OSM în apropierea limitei; acestea nu modifică inventarul sau bilanțul V06. În exterior, leisure=park fără acces privat este considerat eligibil provizoriu; >=1ha folosește 500m, altfel 300m. Tipologia exteriorului necesită verificare locală.
+Rețea OSM din 17.10.2026, topologie noduri comune; 12242 noduri, 13942 segmente, 36 componente. Cea mai mare componentă: 11924 noduri. Nu se conectează geometric două linii care doar se intersectează pe hartă. Rețeaua este parcursă în ambele sensuri; sensurile auto nu impun sens pietonilor.
+Excluderi: foot=no/private, access=no/private/customers fără permisiune pietonală; căi majore cu trotuar separat/no folosesc căile pietonale disponibile. Sunt excluse traversările de cale ferată fără trecere cartografiată ori pod/tunel și intersecțiile cu garduri/incinte restricționate fără poartă cartografiată.
+Număr segmente cu noduri sursă lipsă: 0. Filtre: {"sidewalk_separate_or_no": 67, "access": 518, "unverified_rail_crossing": 6, "unverified_fence_or_restricted_area": 101}.
+Accesurile la verde sunt estimate: noduri ale rețelei în interiorul sursei și conexiuni fără obstacole de maximum 15m până la perimetru. Acestea nu sunt un inventar verificat de intrări. Surse fără conexiune: SV-053; sunt desenate dar nu generează halo. Includerea unei surse nu certifică juridic accesul public.
+Algoritm: Dijkstra multisursă separat pentru parcuri și scuaruri. La o poziție pe rețea, apropierea este minimum dintre distanță_parc/500 și distanță_scuar/300. Prag de deservire: valoare <=1. Nu este densitate de vegetație.
+
+DEGRADEUL
+Eșantionare a segmentelor la <=10m; raster de 8m. Câmpul de afișare folosește o conexiune locală de maximum 80m până la un eșantion de rețea; legăturile care taie clădiri, apă, căi ferate la sol, garduri fără poartă sau incinte restricționate cartografiate sunt eliminate. Se adaugă lungimea legăturii la distanța pe rețea. Intensitatea este (1-distanță_normalizată)^0,75 pentru valori sub prag; suprapunerile folosesc maximum, nu suma. Rasterul este tăiat la limita de studiu.
+Acesta este un câmp grafic de apropiere, nu o isocronă cadastrală verificată. Incintele/barierile lipsă din OSM nu pot fi controlate. Nu se calculează procent din teritoriu sau populație deservit pe baza rasterului. O zonă albă poate reflecta și lipsa conexiunii cartografiate, nu automat lipsa accesului real.
+
+MARCAJE ROȘII — REVIZIE V08
+Pozițiile și dimensiunile sunt modificate editorial conform celor două capturi ale beneficiarului. Nu sunt o nouă clasificare automată a funcțiunii terenurilor. Interpretarea marcajului este „sector cu deficit potențial semnalat de beneficiar”, inclusiv în incinte cu alte funcțiuni decât locuirea. Aceste cercuri nu schimbă rezultatele de acces pe rețea.
+Marcaj 1: fost D3, mutat în zona încercuită în poza 1, diametru +50% (rază 165m).
+Marcaj 2: noul D5, în zona încercuită în poza 2, diametru +20% (rază 132m).
+Marcaj 3: fost D1, în același amplasament, diametru +10% (rază 121m).
+Fostele D2 și D4 sunt eliminate. Numerele 1–3 sunt ordonate nord–sud. Centrele sunt aproximări pe baza capturilor; valorile sunt în Marcaje_CAD.json și în layerul marcaje_deficit. Dimensiunile nu exprimă severitatea, suprafața reală a deficitului sau numărul de locuitori.
+Arterele principale sunt extrase din primary/secondary/tertiary OSM și aliniate cu baza CAD. Sunt reprezentate prin centru gri-verzui și contur alb fin, pentru contrast cu degradeul; acestea sunt o suprapunere grafică, fără schimbarea geometriei CAD.
+
+EDITARE
+GeoPackage: EPSG:3844 (Stereo70), layere surse_verzi, spatii_verzi_V06, retea_pietonala, conexiuni_verde, locuinte_analizate, limite, marcaje_deficit, cladiri_CAD, artere_principale. Distanța -1 în rețea înseamnă fără rezultat în raza de căutare, nu distanță negativă reală. Pragurile se aplică în calcule la puncte, nu la întreaga lungime a fiecărui segment.
+Proiectul QGIS .qgs folosește căi relative; deschideți-l cu fișierele păstrate în același folder. Simbologia QGIS este simplificată; compoziția exactă a planșei este în SVG și scriptul de desen. Proiectul nu a fost deschis într-o interfață QGIS în acest mediu.
+Raster RGBA georeferențiat: Degrade_accessibilite_Stereo70.tif. Câmpul numeric original: Champ_accessibilite.npz. Raportul JSON păstrează bilanțul rețelei, sursele și marcajele. GeoJSON-urile sunt și ele EPSG:3844, nu longitudine/latitudine.
+Scripturile din scripts documentează analiza și randarea. Intrările sunt incluse în inputs, datele originale DWG/PDF nu sunt alterate. Folosiți Python cu numpy, scipy, shapely>=2, matplotlib, pillow și GDAL CLI (ogr2ogr/gdal_translate). Rulați din folder: python scripts/analyse_access_obor.py, apoi python scripts/draw_access_obor.py. Scripturile regenerează calculul și planșa; QGIS/GPKG se livrează deja construite.
+
+SURSE
+DWG/PDF beneficiar; clasificare aprobată V06; capturi beneficiar; © OpenStreetMap contributors, ODbL, extras 17.10.2026 (https://www.openstreetmap.org/copyright). Datele derivate OSM se furnizează cu atribuire și sub ODbL (https://opendatacommons.org/licenses/odbl/1-0/). Analiză orientativă pentru proiect școlar, 18.10.2026.
