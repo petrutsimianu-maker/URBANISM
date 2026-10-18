@@ -1,0 +1,34 @@
+OBOR — PLAN 2D V03 / 18.10.2026
+
+CONTINUT
+Obor_Plan2D_V03_A3.pdf — plansa vectoriala A3 peisaj, recomandata pentru imprimare.
+Obor_Plan2D_V03_A3.png — imagine 300 dpi.
+Obor_Plan2D_V03_A3.svg — plansa vectoriala editabila in programe de grafica.
+Obor_Plan2D_V03_metri.dxf — plan CAD 2D cu hasuri pline, contururi, legenda si diagrama.
+Bilant_suprafete.csv / .json — datele numerice ale bilantului.
+
+GRAFICA
+Spatii verzi: umplere plina verde inchis #286847.
+Constructii: contur gri-antracit #4b5962, interior alb in plansa PDF.
+Parcele: contur ocru-brun #b58c63, preluat din Prop_line al DWG-ului.
+Strazi si infrastructura: gri discret.
+Interventie: contur rosu-caramiziu intrerupt, fara umplere.
+Arborii si coroanele simbolice au fost eliminate complet din aceasta analiza.
+
+CONVENTIA DE CALCUL AGREATA
+Se insumeaza suprafetele vegetate cartografiate si perimetrele parcurilor/gradinilor, inclusiv aleile interioare ale parcurilor. Se elimina constructiile, apa identificata si suprapunerile. Perimetrul unui parc nu este echivalent cu suprafata sa exclusiv inierbata. Inventarul verde poate ramane incomplet in sursele folosite; bilantul nu este unul oficial sau exhaustiv.
+Toate ariile se decupeaza strict la limita zonei de studiu. Suprafata construita este amprenta la sol a cladirilor, nu suprafata desfasurata. Cele trei categorii ale diagramei sunt disjuncte si insumeaza aria zonei de studiu: verde cartografiat, construit la sol, alte suprafete.
+Categoria 'Alte suprafete' include circulatii, platforme, terenuri cu alta folosinta si apa; nu este sinonima cu teren impermeabil. Coroanele arborilor nu intra in bilant. Valorile afisate sunt rotunjite; CSV-ul pastreaza doua zecimale pentru arii.
+
+SURSE SI PRECIZIE
+Geometrie DWG/PDF furnizata de beneficiar + OpenStreetMap, extragere 17.10.2026. Limita studiului este cea neagra din PDF; interventia este conturul rosu. Cladirile provin din Const_polygon, iar limitele parcelare din Prop_line; nu se afirma validarea cadastrala a acestora.
+Datele OSM au fost aliniate cu DWG-ul prin translatia determinata in V02, controlata pe 876 de contururi, reziduu median aproximativ 1,6 m. Nu este o ridicare topografica certificata.
+Date OSM: copyright OpenStreetMap contributors, ODbL, https://www.openstreetmap.org/copyright .
+
+IMPORT DXF IN ARCHICAD 26
+Unitati: 1 unitate = 1 metru. Planul este 2D; nu include volume sau arbori 3D.
+Originea locala este aceeasi ca in IFC-ul V02: X_local = X_CAD - 626950; Y_local = Y_CAD - 324600. Pentru suprapunere cu IFC nu adauga translatii, rotatii sau scalari suplimentare.
+DXF-ul contine hasuri SOLID cu golurile pastrate si culori ByLayer. Daca translatorul Archicad remapeaza culorile, foloseste culorile sursa sau asociaza straturilor culorile de mai sus. Legenda si piechart-ul sunt in model space, la dreapta planului. Exista straturi separate pentru hasuri verzi, cladiri, parcele, limite, infrastructura si legenda.
+
+IMPRIMARE
+PDF: A3 peisaj, 100% / Actual size pentru pastrarea barei de scara. PDF-ul este vectorial. Verifica lizibilitatea contururilor la imprimare pe echipamentul folosit.
