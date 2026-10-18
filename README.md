@@ -28,3 +28,7 @@ In `livrabile/Archicad26` se afla exportul IFC2x3 si pachetul ZIP pentru Archica
 In `livrabile/Plan2D_V03` se afla analiza in plan, fara arbori: verde inchis cu hasuri pline, constructii cu contur gri-antracit, parcele cu contur ocru-brun, legenda si diagrama circulara a bilantului. PDF vectorial A3, PNG 300 dpi, DXF 2D in metri, CSV si pachet ZIP cu SVG editabil.
 
 Bilantul este orientativ si foloseste conventia agreata: suprafete vegetate si perimetre de parcuri/gradini, inclusiv aleile interne; constructiile si apa identificate sunt excluse. Spatiile verzi cartografiate nu reprezinta un inventar oficial exhaustiv. Aria studiului: 349,18 ha; verde cartografiat: 11,56 ha (3,31%); construit la sol: 86,89 ha (24,89%); alte suprafete: 71,80%.
+
+## Incadrarea functionala orientativa — schema beneficiarului
+
+`livrabile/Incadrare_V04` contine harta si tabelul tuturor celor 121 de contururi V04, analizate dupa cele trei categorii furnizate de beneficiar. Rezultat: 47 compatibile probabil cu categoria 1, 24 cu categoria 3, doua contururi mixte si 48 neconfirmate. Nu s-a identificat o categorie 2 confirmata in inventarul actual. Nu reprezinta clasificare juridica oficiala CATUC; forma normativa nu a fost verificata, iar datele hartii nu certifica accesul/proprietatea. Planul si bilantul V04 nu au fost modificate. Raportul explica motivele si verificarile necesare, iar CSV-ul include sursele OSM.

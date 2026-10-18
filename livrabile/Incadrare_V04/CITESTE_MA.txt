@@ -1,0 +1,30 @@
+OBOR — INCADRARE FUNCTIONALA ORIENTATIVA A SPATIILOR VERZI V04
+
+Grila este lista celor trei categorii trimisa de beneficiar. Forma normativului CATUC in vigoare nu a fost verificata: pagina legislativa indicata nu a putut fi accesata in mediul cloud. Documentele nu constituie incadrare juridica oficiala, dovada de proprietate sau certificare a accesului.
+
+FISIERE
+Raport_incadrare_spatii_verzi_V04.pdf — explicatii si tabel pentru toate cele 121 de contururi.
+Harta_incadrare_orientativa_V04_A3.pdf / .png — harta A3 separata, cu clasele probabile si incertitudinile.
+Incadrare_spatii_verzi_V04.csv — centralizator complet: cod SV, arie, categorie candidata, motiv, acces in sursa, verificari necesare si linkuri OSM.
+Incadrare_V04_Stereo70.geojson — copie a geometriei V04 in EPSG:3844, cu atributele clasificarii; nu modifica geometria sau bilantul original.
+Incadrare_spatii_verzi_V04.json — aceleasi date, cu geometria originala CAD si informatiile de analiza.
+
+REZULTAT
+47 contururi: categoria 1 probabil — compatibile functional cu parcuri/amenajari publice sau fasii stradale.
+24 contururi: categoria 3 probabil — incinte comerciale/de cult, gradini comunitare sau curti aferente imobilelor.
+2 contururi mixte: SV-024 si SV-046; nu pot primi riguros o singura categorie fara verificare/subdivizare.
+48 contururi: neconfirmate. Cel mai adesea nu se poate distinge intre fasia stradala publica si gradina aferenta imobilului.
+Categoria 2: niciun contur confirmat din inventarul V04; nu inseamna ca in tot teritoriul lipsesc dotari specializate sau vegetatie aferenta lor.
+
+VERIFICAREA HARTILOR
+Au fost folosite datele OSM extrase la 17.10.2026, contururile V04, geometria CAD si capturile furnizate V1–V3. Nu a fost facuta o inspectie in teren sau o verificare actuala a portilor, programelor de acces ori titlurilor de proprietate. Tagurile OSM nu sunt documente juridice. Incintele au fost analizate prin suprapunere spatiala; simpla apropiere de un spital/scoala nu a fost tratata ca apartenenta la acea institutie.
+Pentru leisure=garden fara informatii de acces/administrator nu s-a presupus automat gradina publica. Garden:type=community sugereaza folosință comunitara, dar poate exista acces public: categoria 3 ramane probabila, nu certa. Peluzele comerciale raman aferente incintei chiar daca sunt accesibile clientilor.
+SV-024: sursa separa o parte park/access=yes de o parte grassland/access=no; interdictia nu transforma automat partea respectiva in categoria 3. Surface=tartan indica si necesitatea verificarii functiunii/amenajarii concrete.
+SV-046: ansamblul Gara Obor/Caminului are parcuri si gradini langa blocuri agregate in acelasi contur; folosintele trebuie delimitate inainte de bilant pe categorii.
+SV-006: meadow in ansamblul Rose Garden nu dovedeste ca terenul este o gradina amenajata; trebuie verificata si includerea ca spatiu verde in sensul grilei.
+SV-045: landuse=industrial provine dintr-un import CLC generalizat, nu din limite de proprietate; clasificarea ca incinta industriala ar fi nejustificata numai pe aceasta baza.
+
+Nu s-au calculat procente juridice pe categoriile 1–3, deoarece contururile mixte si cele neconfirmate nu permit un bilant complet justificat. Numarul contururilor grafice nu reprezinta numarul de parcuri sau imobile. Plansele si bilantul V04 nu au fost schimbate.
+
+Pentru confirmare: registrul local al spatiilor verzi, documentatia urbanistica aplicabila, limitele incintelor/administrarii si regimul real de acces; apoi separarea contururilor mixte.
+Date OSM: copyright OpenStreetMap contributors, ODbL, https://www.openstreetmap.org/copyright .
