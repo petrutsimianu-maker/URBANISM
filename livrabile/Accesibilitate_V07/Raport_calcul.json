@@ -1,0 +1,74 @@
+{
+  "network_nodes": 12242,
+  "network_edges": 13942,
+  "network_components": 36,
+  "largest_component_nodes": 11924,
+  "excluded": {
+    "sidewalk_separate_or_no": 67,
+    "access": 518,
+    "unverified_rail_crossing": 6,
+    "unverified_fence_or_restricted_area": 101
+  },
+  "missing_segments": 0,
+  "sources_internal": 16,
+  "sources_external": 19,
+  "sources_without_connection": [
+    "SV-053"
+  ],
+  "residential_status_counts": {
+    "potential_deficitar": 188,
+    "deservit": 473,
+    "conexiune_neconfirmata": 3
+  },
+  "markers": [
+    {
+      "id": "D1",
+      "center": [
+        626529.7815297816,
+        323655.69247419835
+      ],
+      "radius_m": 110,
+      "residential_buildings_150m": 46,
+      "symbol": "cerc orientativ, fără valoare de limită"
+    },
+    {
+      "id": "D2",
+      "center": [
+        626870.8881636013,
+        323641.4625912206
+      ],
+      "radius_m": 110,
+      "residential_buildings_150m": 31,
+      "symbol": "cerc orientativ, fără valoare de limită"
+    },
+    {
+      "id": "D3",
+      "center": [
+        626388.9837842191,
+        325318.4610817111
+      ],
+      "radius_m": 110,
+      "residential_buildings_150m": 19,
+      "symbol": "cerc orientativ, fără valoare de limită"
+    },
+    {
+      "id": "D4",
+      "center": [
+        626241.2182284018,
+        323782.0743821035
+      ],
+      "radius_m": 110,
+      "residential_buildings_150m": 18,
+      "symbol": "cerc orientativ, fără valoare de limită"
+    }
+  ],
+  "study_area_m2": 3491787.857676366,
+  "method": "Distanțe pe graf pietonal OSM; puncte de acces inferate din conexiuni; halo grafic cu legătură locală ≤80m, bariere și clădiri filtrate. Fără indicator de suprafață deservită sau populație.",
+  "date_sources": "OSM 17.10.2026, DWG/PDF, categorii beneficiar V06",
+  "raster_extent_cad": [
+    625624.0,
+    628448.0,
+    323376.0,
+    325880.0
+  ]
+}
