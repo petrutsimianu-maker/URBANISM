@@ -1,0 +1,10 @@
+OBOR — PLAN 2D V05
+Încadrare după Excel și precizările beneficiarului din 18.10.2026; nu reprezintă certificare juridică CATUC.
+SV-013: Parcuri. SV-006: spații verzi aferente locuințelor. Restul codurilor lipsă: fâșii plantate. 411 ignorat.
+SV-027 eliminat integral din inventarul verde (acoperiș); codurile rămase nu sunt renumerotate. Geometria clădirilor CAD nu a fost modificată. Suprafața eliminată intră în restul bilanțului în măsura în care nu era deja construită.
+SV-029 păstrat la Parcuri, indiferent de suprafața netă sub 1 ha. Legenda folosește Parcuri, fără prag.
+DXF R2013, unități metri, aceeași origine locală ca V04/IFC. Importabil în Archicad 26 ca desen 2D.
+Hașuri pe VERDE_PARCURI / VERDE_SCUARURI / VERDE_FASII / VERDE_LOCUINTE. VERDE_SUPRAFETE: cod + suprafață pe layer separat; ascundeți layerul pentru plan curat. VERDE_CONTUR_CALCUL: contururi individuale. Etichetele sunt statice.
+GeoPackage și GeoJSON: EPSG:3844. XLSX/CSV: toate cele 120 de contururi, încadrarea și suprafețele.
+Convenție: parcurile includ aleile interioare; clădirile și apa identificate sunt excluse din verde. Alte suprafețe nu înseamnă exclusiv teren impermeabil. Inventar orientativ, posibil incomplet.
+Surse: DWG/PDF; © OpenStreetMap contributors, ODbL (17.10.2026); capturi și încadrări beneficiar.
