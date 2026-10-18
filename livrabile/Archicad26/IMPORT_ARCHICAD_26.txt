@@ -1,0 +1,35 @@
+OBOR V02 — IMPORT IN ARCHICAD 26
+
+1. Dezarhiveaza pachetul intr-un director local.
+2. In Archicad 26, alege File > Open > Open.
+3. Selecteaza Obor_V02_complet_IFC2x3.ifc.
+4. Foloseste un translator de import IFC disponibil in instalarea ta si include toate categoriile, inclusiv IfcBuildingElementProxy (elemente generice).
+5. Dupa import, deschide fereastra 3D si foloseste Fit in Window.
+6. Salveaza proiectul rezultat ca PLN.
+
+Daca importul complet dureaza prea mult, deschide mai intai Obor_V02_cladiri_IFC2x3.ifc. Acesta contine numai cele 3.470 de volume ale cladirilor.
+
+Fisierul complet adauga vegetatia, perimetrele parcurilor/gradinilor si limitele de studiu/interventie. Categoriile IFC/layer sunt:
+01_Cladiri
+02_Parcuri_OSM
+03_Suprafete_vegetate
+04_Arbori_simbolici
+05_Limita_studiu
+06_Limita_interventie
+
+UNITATI SI POZITIONARE
+Unitatile IFC sunt metri. Nu aplica o conversie manuala in feet.
+Modelul foloseste o origine locala, aproape de zona studiata, pentru a evita coordonatele foarte mari. Model X=0,Y=0 corespunde aproximativ Stereo70 EPSG:3844, E=590838.128651 m, N=328605.195549 m. +Y indica nordul grilei. Transformarea este salvata si in proprietatile proiectului IFC.
+
+EDITARE
+Elementele sunt volume IFC generice, nu pereti/plansee/arbori GDL nativi. Geometria este destinata contextului urban. Pentru editare directa a geometriei, in functie de translatorul folosit, selecteaza obiectele importate si foloseste Design > Convert Selection to Morph(s). Lucreaza pe o copie a proiectului inaintea conversiei si converteste numai elementele necesare.
+
+PRECIZIE SI SURSE
+Modelul provine din V02: geometrie DWG, simboluri vegetale recuperate din blocuri si completari OpenStreetMap. Inaltimile cladirilor si dimensiunile coroanelor sunt estimate/simbolice. Parcurile includ si alei. Inventarul vegetatiei nu este exhaustiv. Profilurile au fost curatate cu toleranta de 1 mm pentru eliminarea segmentelor si golurilor numerice degenerative la export; nu s-a modificat fisierul DWG.
+Date OSM: copyright OpenStreetMap contributors, ODbL, https://www.openstreetmap.org/copyright .
+
+VERIFICARE
+Format IFC2X3; verificarea de schema si generarea geometriei au fost efectuate cu IfcOpenShell. Importul efectiv in aplicatia Archicad 26 nu a putut fi testat in mediul cloud.
+
+PLAN 2D SUPLIMENTAR
+Obor_V02_plan2D_metri.dxf contine contururi de cladiri, strazi, parcele, pavaje, cale ferata, suprafete verzi, simboluri de arbori si limite. Foloseste aceeasi origine locala si aceleasi unitati (metri) ca IFC-ul. La import/merge DXF seteaza 1 unitate de desen = 1 metru, fara translatie sau rotatie suplimentara, daca doresti suprapunerea cu modelul IFC. DXF-ul este 2D, nu contine volumele cladirilor.
