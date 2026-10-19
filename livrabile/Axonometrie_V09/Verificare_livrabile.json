@@ -1,0 +1,19 @@
+{
+  "A3_pdf": true,
+  "PNG_pixels": [
+    4960,
+    3507
+  ],
+  "IFC": {
+    "schema": "IFC2X3",
+    "errors": 0,
+    "products": 3458,
+    "generated_geometry": 3458,
+    "missing": [],
+    "Archicad_26_import_tested": false
+  },
+  "GPKG_integrity": "ok",
+  "CAD_footprint_conservation": true,
+  "native_model": "Blender 4.3.2 saved and rendered",
+  "Archicad_tested": false
+}

@@ -1,0 +1,54 @@
+OBOR / SPAȚII VERZI ȘI FOND CONSTRUIT — AXONOMETRIE V09
+Elaborare: 19.10.2026. Proiect școlar; situație existentă cartografiată.
+
+CONȚINUT
+Obor_Axonometrie_V09_A3.pdf: A3 peisaj. Imaginea modelului 3D este raster de înaltă rezoluție; titlul, textele și legenda sunt vectoriale. Nu este un PDF integral vectorial.
+Obor_Axonometrie_V09_A3.png: planșă completă 300 dpi.
+Obor_Axonometrie_V09_A3.svg: compoziție editabilă, cu imagine 3D inclusă; nu transformă modelul în linii vectoriale.
+Axonometrie_modele_V09.png: randarea 3D separată, 4400×2850 px, fără texte.
+Obor_Volumetrie_V09.blend: fișier nativ Blender 4.3.2, obiecte individuale și colecții separate pentru clădiri/studiu, context, cele patru categorii verzi, baza CAD și limite. Cameră ortografică; fără exagerare verticală. Contururi Freestyle cu eliminarea muchiilor ascunse; materiale albe uniforme la clădiri. Nu există arbori, funcțiuni colorate, degradeuri sau cercuri roșii.
+Obor_Volumetrie_V09_IFC2x3.ifc: model IFC2X3 Coordination View 2.0, clădiri și suprafețe verzi ca IfcBuildingElementProxy, organizate în grupuri și layere. Pentru Archicad 26: Open/Merge IFC, unități metri, păstrați originea locală. În funcție de translator, volumele pot fi importate ca obiecte/Morph; fișierul nu este un model BIM de execuție.
+Obor_Model_V09.gpkg + Obor_Model_V09.qgs: control GIS, EPSG:3844, layere cladiri_3d (amprente și atribute de înălțime), spatii_verzi, limite. Proiect cu căi relative, vedere GIS în plan; modelul 3D este în Blender/IFC. Proiectul QGIS nu a fost deschis în interfață în acest mediu.
+Inaltimi_cladiri_V09.csv / .xlsx: toate corpurile modelului, surse și statut; in_study=False indică contextul exterior. Câmpul height_m este cota superioară față de teren; base_m cota inferioară. Grosimea volumului este height_m-base_m.
+
+DATE PĂSTRATE
+Geometria de bază: amprente DWG deja prelucrate în modelul V02, prioritate față de geometria OSM. Limita este aceeași ca în proiectul anterior, confirmată de beneficiar. Nu se alterează PDF/DWG-urile originale.
+2467 clădiri cu punct reprezentativ în limita studiului; amprentele lor rămân întregi, fără tăiere artificială la limită. Modelul include și contextul din apropiere, total 3300 amprente / 3336 corpuri, pentru continuitatea reprezentării. Contextul are contururi estompate. Comparațiile statistice de pe planșă se referă exclusiv la studiul propriu-zis.
+Spațiile verzi: geometrie și categorii aprobate V06, 120 contururi, 138638.30m². SV-027 exclus (acoperiș); SV-029 păstrat la Parcuri, fără prag. Sunt aceleași contururi, nu o nouă inventariere. Aleile interioare sunt incluse în perimetrele de parc, conform convenției aprobate.
+
+SURSE ȘI ÎNĂLȚIMI
+OpenStreetMap: extras local 17.10.2026; disponibilitatea API verificată la 19.10.2026 cu https://www.openstreetmap.org/api/0.6/way/28363156 (building:levels=10). Verificarea unui exemplu nu înseamnă actualizarea tuturor clădirilor la 19.10.2026.
+Sunt cercetate poligoanele OSM building, building:part și atributele height, building:levels, min_height, building:min_level, roof:height. Nu se deduce funcțiunea clădirii pentru simbolizare.
+Portalul data.gov.ro și site-ul Mapzen: solicitări blocate de accesul de rețea (403); nu se declară că datele nu există. Documentația GlobalMLBuildingFootprints Microsoft a fost accesată; indexul de descărcare a fost blocat (403). Nu s-au folosit înălțimi din aceste surse. Nu sunt disponibile măsurători oficiale/LiDAR verificate pentru acest model și nu au fost inspectate sistematic imagini stradale.
+Rezultatele solicitărilor și URL-urile sunt salvate în Verificare_surse.json. Surse_OSM_selectate_CAD.json păstrează geometria și etichetele OSM selectate, în coordonatele locale CAD.
+
+CORELARE ȘI ESTIMARE
+Transformarea OSM→CAD reutilizează alinierea verificată în V02: X_CAD=E_3844+36111.87134909537; Y_CAD=N_3844-4005.1955491336994. OSM nu înlocuiește conturul DWG.
+O potrivire candidată cere minimum 2m² intersecție, acoperirea a cel puțin 65% din unul dintre poligoane și IoU>=0,20. Se prioritizează cea mai mare suprapunere dintre candidații cu înălțime/niveluri. Potrivirile apropiate în scor, cu diferențe de înălțime >6m, sunt marcate cu încredere scăzută; cazurile sunt în Rezumat_V09.json. OSM are precizie variabilă, iar alinierea nu garantează atribuirea corectă în toate incintele cu multe corpuri.
+1) height OSM: se folosește valoarea declarată în metri, inclusiv acoperișul, fără a o numi măsurătoare certificată.
+2) building:levels OSM: înălțime estimată = număr niveluri × 3,00m; se adaugă roof:height valid dacă există și nu există height. Acoperișurile se simplifică în volumul total, fără detalii. Nu sunt adăugate subsoluri. Înălțimea parterelor comerciale nu a fost verificată separat.
+3) Fără date OSM: când există cel puțin 3 amprente comparabile în raza de 220m (arie în raport 0,55–1,80 și indice arie/perimetru comparabil), se folosește mediana a maximum 7 vecini documentați OSM, rotunjită la 1,5m și limitată conservator la 3–48m. Identificatorii analogilor sunt păstrați în Model_V09.json. Acesta este un model morfologic, nu o observație a numărului de etaje.
+4) Fără analogi suficienți: se păstrează estimarea morfologică explicită din V02, neconfirmată. În ambele cazuri statutul este estimat și încrederea scăzută.
+Volumetria building:part este decupată în interiorul amprentei CAD când există date și o suprapunere suficientă; restul amprentei păstrează înălțimea de bază. Suprapunerile între părți sunt eliminate înainte de modelare. Există 3 amprente împărțite în corpuri, în context; în interiorul studiului sunt 2467 volume. min_height / building:min_level se aplică părților unde există; clădirile întregi pornesc de la sol.
+
+BILANȚ ÎNĂLȚIMI — NUMAI ZONA DE STUDIU
+1 clădire: height OSM declarat, statut documentat ca atribut sursă.
+446 clădiri: niveluri OSM documentate, înălțime în metri estimată din niveluri.
+2020 clădiri: estimări morfologice fără înălțime/niveluri OSM potrivite.
+Total 2467 clădiri. Prin urmare 2466 înălțimi în metri sunt estimări, chiar dacă unele au număr de niveluri documentat. Intervalul utilizat în studiu: 3.0–57.0m. Tabelul și proprietățile modelului păstrează distincția; grafica rămâne uniformă.
+
+COORDONATE / COMPATIBILITATE
+Unități metri. Origine locală identică livrabilelor anterioare Archicad: X_local=X_CAD-626950; Y_local=Y_CAD-324600.
+Origine locală exprimată în Stereo70: E=590838.128650905, N=328605.195549134. Model +Y = nordul grilei. Altitudinea terenului este convențională Z=0; nu este cota altimetrică reală.
+Camera: proiecție paralelă, azimut convențional 26°, elevație 38°, fără factor de exagerare pe Z.
+
+VALIDARE
+IFC: 3458 obiecte, 0 probleme de schemă; generare geometrică reușită pentru 3458 obiecte, fără obiecte lipsă. Importul în Archicad 26 NU a fost efectiv testat; aplicația nu este disponibilă în mediu. Rezultatele sunt în Validation_IFC_resume.json.
+Geometriile corpurilor conservă amprentele CAD, iar cele 120 de spații verzi conservă bilanțul aprobat. Verificări de integritate GeoPackage, format A3 și rezoluție PNG incluse în raportul de pachet. Modelul nativ a fost salvat și randat în Blender 4.3.2. Cinci dintre cele mai înalte clădiri cu niveluri OSM au fost reverificate direct în API la 19.10.2026; toate cele cinci valori coincid cu extrasul utilizat. Detalii în Control_inaltimi_mari_OSM.json.
+
+REPRODUCERE
+Scripturile sunt în scripts; fișierul de intrare Model_V09.json conține geometria și metadatele complete. Pentru randare din modelul nativ: deschideți .blend în Blender 4.3.2 și Render Image. Scenele folosesc Cycles CPU, materiale plate și Freestyle, fără dependență de GPU sau denoiser extern. Puteți schimba camera fără a modifica datele.
+Scripturile de construcție/export folosesc Model_V09.json și inputs/Linii_plan.json. Python extern necesită shapely>=2, numpy, scipy, matplotlib, pillow, openpyxl, ifcopenshell și GDAL CLI; Blender are propriul Python. Paths sunt relative în copiile livrate. Scriptul de pregătire istorică este inclus ca referință; actualizarea din OSM necesită refacerea corelării, nu simpla randare.
+
+LICENȚĂ / ATRIBUIRE
+© OpenStreetMap contributors, ODbL, https://www.openstreetmap.org/copyright ; https://opendatacommons.org/licenses/odbl/1-0/ . Datele derivate OSM sunt furnizate sub ODbL cu atribuire. Geometria DWG/PDF și încadrarea spațiilor verzi provin de la beneficiar. Analiză pentru proiect școlar, fără certificare cadastrală sau releveu de înălțimi.
