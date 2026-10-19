@@ -1,0 +1,31 @@
+OBOR / VOLUMETRIE + SUPRAFEȚE JOASE COLORATE — V10
+
+MODEL
+Modelul IFC V09 primit de la beneficiar este păstrat; SHA256 al atașamentului coincide cu livrabilul V09 anterior. Au fost adăugate 222 obiecte IfcSlab, în grupuri/layere SLABURI_Galben, SLABURI_Portocaliu, SLABURI_Albastru și SLABURI_Roz. Clădirile, înălțimile, GUID-urile și reprezentările originale rămân neschimbate. X-urile roșii din imagine sunt ignorate.
+Grosime convențională slab: 0,12m; bază Z=0,08m, cotă superioară Z=0,20m față de terenul convențional Z=0. Aceasta este o reprezentare de urbanism, nu o proiectare a cotelor reale. Suprafețele sunt decupate la clădiri cu un mic rost grafic de 4cm și nu se suprapun între ele.
+Culorile sunt coduri grafice preluate ca nuanțe echilibrate din imagine. Nu sunt funcțiuni atribuite clădirilor și nu se declară că suprafețele albastre sunt apă. Nu se recalculează bilanțul oficial/inventarul V06 prin aceste slaburi; unele suprapun suprafețele verzi deja existente în model.
+
+PRECIZIE / SURSA CULORILOR
+DWG-ul model alei.dwg conține contururile exportate în roșu, pe layere New_*_Pen_No__20; nu păstrează galbenul, portocaliul, albastrul și rozul din imagine. Conversia LibreDWG a emis avertizări pentru metadate/secțiuni și obiecte de material; stratul geometric folosit a fost verificat independent prin aliniere.
+În absența unui DWG/DXF/PDF vectorial cu cele patru culori, V10 este o primă interpretare aproximativă a imaginii. Culorile și selecția contururilor galbene sunt interpretate din grupările marcate. Pentru albastru/roz/portocaliu se folosesc contururi Pav_line apropiate când există corespondentă, iar unele contururi sunt trasate schematic după imagine. Nu reprezintă o digitizare exactă pixel cu pixel a tuturor marcajelor. Câmpul method identifică în fiecare obiect dacă este contur CAD selectat sau interpretare grafică.
+Pentru delimitare și culoare exactă, este necesar un DWG/DXF care păstrează culorile sau un PDF vectorial colorat. Obiectele sunt individuale și pot fi corectate fără schimbarea clădirilor.
+
+ALINIERE
+DWG-ul este în milimetri și cu altă origine. Au fost regăsite cele 7 poligoane GREEN de referință. După trecerea mm→m, un factor suplimentar de 0.991867030128 și translația (626694.279364057, 324881.860536325) în CAD reproduc exact geometria originală. Rotația este practic zero.
+Verificare independentă pe clădiri: 957 amprente la IoU>97%, reziduu median centroid 0.000000012m. Datele numerice complete sunt în Aliniere_DWG_V10.json. Aceste rezultate verifică alinierea CAD, nu precizia marcajelor de culoare din imagine.
+Origine locală identică IFC V09: X_local=X_CAD-626950, Y_local=Y_CAD-324600. Unități model/IFC/DXF: metri. GIS: EPSG:3844, Stereo70.
+
+LIVRABILE
+Obor_Volumetrie_V10_IFC2x3.ifc: IFC complet actualizat, cu 3680 obiecte geometrice: 3458 originale + 222 slaburi noi. Pentru Archicad 26, importați în metri cu același translator/origine ca V09. Fișierul include deja clădirile; nu îl suprapuneți peste V09 fără gestionarea duplicatelor. Importul efectiv în Archicad nu a fost testat în acest mediu.
+Obor_Volumetrie_V10.blend: Blender 4.3.2; colecție separată 09_Slaburi_colorate_V10, cu obiecte separate și proprietăți pentru fiecare slab. Camera și restul modelului sunt cele V09; contururi ascunse eliminate la randare. Pentru editare: selectați obiectul AL-xxx sau materialul Slab_Culoare.
+Obor_Axonometrie_V10_A3.pdf/png/svg: planșa A3 actualizată. Modelul este imagine raster de înaltă rezoluție, textele și legenda sunt vectoriale în PDF/SVG. PNG complet la 300 dpi.
+Slaburi_V10_metri.dxf: referință 2D aliniată, hașuri pline pe layere de culoare și etichete separate pe SLABURI_CODURI; fără clădiri duplicate.
+Obor_Model_V10.gpkg: GIS V09 păstrat + layer slaburi_joase. Slaburi_V10_Stereo70.geojson: același layer separat.
+Slaburi_V10.xlsx/csv: centralizator coduri, suprafețe, grosime, sursă și metodă. Slaburi_V10.json: geometrii CAD complete pentru editare/reproducere.
+
+VALIDARE
+Schema IFC: 0 probleme. Geometrie generată pentru 3680 din 3680 obiecte. Reprezentarea și poziționarea celor 3458 obiecte originale au rămas identice. Intersecția în plan dintre slaburile noi și clădiri: 0.000000m². Fișierele de control sunt în Verificare_IFC_V10.json și Verificare_livrabile_V10.json.
+Suprafața slaburilor din această interpretare: 104374.45m². Nu este o măsurătoare a contururilor colorate originale, fiind dependentă de aproximările descrise mai sus.
+
+SURSE
+model alei.dwg, IFC V09 și imaginea furnizate de beneficiar; amprente/înălțimi V09: DWG/PDF și © OpenStreetMap contributors, extras 17.10.2026, ODbL. Înălțimile V09 rămân în mare parte estimate, conform notei V09. Culorile slaburilor nu schimbă statutul acestor estimări.
