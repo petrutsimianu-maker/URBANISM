@@ -1,0 +1,28 @@
+{
+  "IFC": {
+    "schema": "IFC2X3",
+    "schema_errors": 0,
+    "IfcSlab_count": 172,
+    "geometry_generated": 172,
+    "only_road_geometry": true,
+    "layer": "URB_DRUMURI_STREET_LINE",
+    "group": "URB_DRUMURI_STREET_LINE",
+    "unit": "metre",
+    "bottom_m": -0.11,
+    "top_m": 0.01,
+    "thickness_m": 0.12,
+    "surface_area_IFC_m2": 669398.541064797,
+    "max_area_error_m2": 0.0017853039917099522,
+    "Archicad26_import_tested": false
+  },
+  "GIS_integrity": "ok",
+  "road_count": 172,
+  "DXF_hatch_count": 172,
+  "layer": "URB_DRUMURI_STREET_LINE",
+  "CAD_area_m2": 669398.5392902126,
+  "within_study": true,
+  "overlap_buildings_m2": 0.0,
+  "overlap_green_V06_m2": 0.0,
+  "control_A3_pages": 2,
+  "estimated_portion_percent": 34.26258309126681
+}

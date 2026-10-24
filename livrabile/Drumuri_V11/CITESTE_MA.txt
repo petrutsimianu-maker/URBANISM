@@ -1,0 +1,58 @@
+OBOR — DRUMURI STREET_LINE / V11
+Elaborare: 25.10.2026. Model de urbanism orientativ, pentru Archicad 26.
+
+CE CONȚINE IFC-UL
+Obor_Drumuri_V11_IFC2x3.ifc conține exclusiv 172 IfcSlab de circulații. Nu sunt incluse geometrii de clădiri, monumente, spații verzi ori obiecte ale modelului de referință. IfcSite/IfcBuilding/IfcBuildingStorey sunt numai containerele spațiale standard, fără reprezentări geometrice.
+Toate reprezentările sunt atribuite layerului IFC URB_DRUMURI_STREET_LINE, prin IfcPresentationLayerAssignment, și grupului IfcGroup cu același nume. Fiecare obiect are Tag/Name DR-xxx și ObjectType URB_DRUMURI_STREET_LINE. Suprafețele sunt în gri deschis RGB 225,228,226, opace, fără texturi sau marcaje.
+Grosime: 0,12m. Teren de referință: Z=0,00m. Cota superioară: +0,01m; inferioară: −0,11m. Drumurile sunt orizontale, fără modelarea pantelor, podurilor sau structurii reale a carosabilului. Nu este proiect tehnic rutier.
+Suprafață reconstruită: 669398.539m² (66.940ha). Rețeaua a fost împărțită spațial pe o grilă de 300m, apoi în componente conectate, pentru robustețea profilurilor cu goluri și editare. Aceste diviziuni sunt tehnice; identificatorii nu sunt tronsoane administrative sau denumiri de străzi.
+
+SURSE
+Plan de bază.dwg atașat este identic binar cu DWG-ul original: SHA256 803e5564ed97660d4e1c4d9bd1059a22ccb287d8cfb5cac85d539d27ded1582e. A fost reutilizată conversia verificată /workspace/URBANISM-output/plan_baza.dxf și extragerea CAD aferentă, fără modificarea originalelor. Sursa geometrică principală este layerul Street_line: 1054 entități în baza completă, 354 marcate închise.
+Plan de bază.pdf atașat delimitează studiul. Conturul negru a fost reconstruit inclusiv cu porțiunile Bezier, în aceeași transformare PDF→CAD folosită anterior. Aria limitei reconstruite este 3493645.149m², aproximativ 349,36ha; față de limita liniarizată anterioară 349,18ha există o diferență de circa 0,19ha, din reconstrucția conturului. Nu s-a recalculat bilanțul verde V06.
+Model de poziționare: 261019 Obor_Volumetrie_monumente.ifc, unități interne mm, geometrii extrase în metri. Este folosit modelul atașat, nu o presupunere despre vechea origine V09.
+OpenStreetMap: setul vectorial local din 17.10.2026, corelat cu DWG-ul. Disponibilitatea și câteva străzi-cheie (Baicului, Ferdinand I, Pantelimon) au fost reverificate prin API la 25.10.2026. Aceasta nu reprezintă o actualizare integrală a tuturor traseelor. Răspunsurile sunt în Surse_verificate.json și XML-urile de control. Mapzen: accesul site-ului a fost blocat de rețea (403); nu au fost folosite date Mapzen. Nu au fost verificate sistematic imagini stradale/aeriene pentru toate discontinuitățile.
+
+RECONSTRUCȚIA SUPRAFEȚEI
+Inversarea brută a contururilor incomplete ar fi clasificat incinte, terenuri libere și curți ca drumuri. Geometria nu a fost construită printr-o simplă umplere a tuturor golurilor.
+1. Liniile Street_line au fost nodate și normalizate la o grilă de 2cm. Polygonizarea identifică insulele și limitele existente.
+2. Au fost realizate 207 conexiuni locale, în toleranțe succesive de 0,15 / 0,5 / 1,5 / 3 / 6 / 10 / 18m. Sunt alese capete sau proiecții apropiate, fără traversarea unei axe publice OSM tamponate cu 0,65m ori a unui coridor feroviar cartografiat. Acestea sunt reparații geometrice orientative; nu sunt confirmări de teren ale bordurilor.
+3. După reparații au rezultat 437 fețe închise. Candidatul de circulație este diferența între limita studiului și insulele polygonizate. În zonele largi neconfirmate s-a aplicat un filtru morfologic cu rază de 22m pentru a evita umplerea incintelor. În aceste porțiuni sunt păstrate numai coridoare susținute de trasee OSM, în interiorul candidatului CAD; nu se adaugă automat drumuri în insule închise.
+4. În lipsa width OSM explicit, semilățimile convenționale sunt: primary 15m; secondary 12m; tertiary 9m; residential 6m; living_street/unclassified 5m; service 3,5m; pedestrian 3m; footway 1,5m; path 1,25m; track 2,5m; steps 1,2m. Variantele link au 7–9m. Lățimile explicite OSM au prioritate, în limite conservatoare. Aceste valori nu sunt măsurători ale drumurilor din Obor.
+5. Au fost excluse traseele OSM cu access=no/private/customers, suprapunerile cu clădirile efective din IFC și coridoarele de șină la sol nesusținute de circulații cartografiate. Nu s-au creat traversări noi pentru a forța conectivitatea. Setul OSM și Street_line pot rămâne incomplete în incinte și la accesuri.
+6. Inventarul verde aprobat V06 a fost verificat separat. Circa 10608.45m² de suprapuneri cu verdele cunoscut au fost eliminate. La parcuri suprapunerile observate erau marginale; nu s-a reconstruit o rețea de alei interioare în parcuri din date inexistente. Fâșiile plantate și insulele verzi cunoscute sunt păstrate ca goluri.
+7. Fragmentele minuscule și reziduurile izolate au fost filtrate; două profile IFC au primit corecții de precizie de 0,1mm pentru eliminarea muchiilor aproape coincidente (DR-014 și DR-025). Diferența maximă de arie între profilul CAD și triangularea IFC este 0.001785m².
+Suprafață de completare estimativă în zonele largi neconfirmate: 229353.23m², aproximativ 34.26% din rețeaua finală. Restul folosește predominant contururile CAD, cu reparațiile locale descrise. Estimările sunt evidențiate în Obor_Drumuri_V11_estimari_A3.pdf și în câmpul estimated_area_m2 pentru fiecare obiect; un obiect poate conține atât porțiuni CAD cât și estimate.
+
+ALINIEREA CU IFC-UL
+Coordonatele finale ale drumurilor sunt coordonatele geometrice mondiale ale modelului de referință, exprimate în metri:
+X_model = X_CAD + (-626955.735115847201)
+Y_model = Y_CAD + (-324593.841690237809)
+Față de originea locală V09, deplasarea este -5.735115847184m pe X și 6.158309762196m pe Y. Nu deplasați manual modelul cu vechea origine V09 după import.
+Au fost corelate 3335 amprente nominale; 3326 au reziduuri centroid sub 5cm. Verificări independente nord/sud/est/vest: {"Nord": {"matches": 424, "max_residual_m": 0.00016377649440108108}, "Sud": {"matches": 873, "max_residual_m": 0.007953261886925984}, "Vest": {"matches": 236, "max_residual_m": 5.124129995975989e-10}, "Est": {"matches": 493, "max_residual_m": 0.007953261886925984}}. Cazurile modificate sunt raportate ca excepții, nu folosite pentru transformare. Aliniere_IFC_V11.json păstrează datele de control.
+IFC-ul de referință conține explicit numai conturul verde SV-113, nu întregul inventar verde anterior. Vederile de control adaugă celelalte suprafețe V06 în colecție separată, etichetată VERDE_V06_CONTROL_SUPLIMENTAR. Această suprapunere nu este inclusă în IFC-ul de drumuri și nu afirmă că verdele este prezent integral în fișierul monumente.
+
+IMPORT ÎN ARCHICAD 26
+1. Păstrați o copie a proiectului. Adăugați IFC-ul de drumuri prin File / Interoperability / Merge, cu translatorul IFC folosit pentru coordonate originale. Unitățile din acest IFC sunt metri; modelul de referință este în mm, conversia fiind deja tratată în coordonatele exportate.
+2. Activați maparea layerelor IFC dacă translatorul oferă această opțiune: IfcPresentationLayerAssignment → URB_DRUMURI_STREET_LINE. În funcție de translator, elementele IfcSlab pot deveni slaburi native sau obiecte/Morph.
+3. Dacă layerul nu este creat automat, creați URB_DRUMURI_STREET_LINE, selectați elementele importate după numele/Tag DR-xxx sau grupul IFC URB_DRUMURI_STREET_LINE și atribuiți-le acestui layer. Grupul și identificatorii sunt redundanțe pentru selecție; nu există garanția că orice translator păstrează automat grupul sau layerul nativ.
+4. Verificați poziționarea în nord, sud și est folosind vederile livrate. Pentru controlul vizibilității, ascundeți/aratați layerul URB_DRUMURI_STREET_LINE. Nu ajustați scara manual pentru diferența mm/metri.
+Importul efectiv în Archicad 26 NU a fost testat; aplicația nu este disponibilă în mediu. Au fost verificate schema IFC, unitățile, pozițiile și generarea fiecărei geometrii.
+
+LIVRABILE
+Obor_Drumuri_V11_IFC2x3.ifc — doar circulații, layer/grup independent.
+Obor_Drumuri_V11_metri.dxf — aceleași coordonate locale de model, hașuri și contururi. Layerul principal este URB_DRUMURI_STREET_LINE; DRUMURI_CODURI și CONTROL_ESTIMARI sunt layere auxiliare ascunse implicit. Nu sunt incluse clădiri duplicate.
+Drumuri_V11.json — geometrii CAD și geometrii de model, atribute pe fiecare obiect.
+Drumuri_V11.csv — identificatori, arii, cote, grosimi, sursă și statut.
+Obor_Drumuri_V11.gpkg / Drumuri_V11_Stereo70.geojson — geometrie GIS absolută EPSG:3844; GPKG include și reparațiile liniare. Aceste coordonate sunt diferite de coordonatele locale IFC; transformarea este documentată.
+Obor_Drumuri_V11_control_A3.pdf — două planșe A3, plan + axonometrie. PNG-urile sunt 300dpi; axonometria modelului este raster, textele/legenda vectoriale în PDF.
+Obor_Drumuri_V11_estimari_A3.pdf — controlul completărilor estimative, în ocru; materialul IFC rămâne gri uniform.
+Obor_Drumuri_V11_control.blend — Blender 4.3.2, modelul IFC de referință + drumuri + verde V06 suplimentar de control, în colecții distincte. Nu confundați acest fișier de verificare cu IFC-ul care conține numai drumurile. Geometria clădirilor este din IFC-ul actual; albul este convenția vizuală de control.
+scripts/ — pașii executați de reconstrucție, export și verificare; unele căi indică spațiul de lucru /workspace. Fișierele JSON livrate permit editarea fără reextragerea DWG-ului.
+
+VALIDARE
+IFC2X3: 0 probleme de schemă, 172 geometrii generate din 172 slaburi. Aria suprafețelor superioare IFC: 669398.541m². Un singur layer de reprezentare geometrică: URB_DRUMURI_STREET_LINE. Nu există IfcBuildingElementProxy sau alte volume de construcții în export.
+Geometriile au fost verificate pentru validitate, absența suprapunerilor dintre obiecte, încadrarea în limita reconstruită, golurile insulelor și evitarea clădirilor/verdelui de control. Profilele IFC pot avea corecțiile submilimetrice descrise mai sus. Nu este certificată lățimea fiecărui drum sau existența fiecărui acces; acestea necesită teren/date suplimentare.
+
+ATRIBUIRE
+© OpenStreetMap contributors, ODbL: https://www.openstreetmap.org/copyright ; https://opendatacommons.org/licenses/odbl/1-0/ . DWG/PDF/IFC și încadrarea verde provin de la beneficiar. Datele derivate OSM sunt furnizate cu atribuire și ODbL. Proiect școlar, 25.10.2026.
